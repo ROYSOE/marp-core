@@ -96,18 +96,7 @@ Emoji shortcode (like `:smile:`) and Unicode emoji 😄 will convert into the SV
 
 We have [Pandoc's Markdown style](https://pandoc.org/MANUAL.html#math) math typesetting support. Surround your formula by `$...$` to render math as inline, and `$$...$$` to render as block.
 
-<table>
-<thead>
-<tr>
-<th style="text-align:center;width:50%;">Markdown</th>
-<th style="text-align:center;width:50%;">Rendered slide</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-
-```tex
+```markdown
 Render inline math such as $ax^2+bc+c$.
 
 $$ I_{xx}=\int\int_Ry^2f(x,y)\cdot{}dydx $$
@@ -119,14 +108,7 @@ f(x) = \int_{-\infty}^\infty
 $$
 ```
 
-</td>
-<td>
-
-![Math typesetting support](https://user-images.githubusercontent.com/3993388/142782335-15bce585-68f1-4c89-8747-8d11533f3ca6.png)
-
-</td>
-</tbody>
-</table>
+> **Example:** See [examples/math-typesetting.md](examples/math-typesetting.md) for a complete working example.
 
 You can choose using library for math from [MathJax](https://www.mathjax.org/) and [KaTeX](https://khan.github.io/KaTeX/) in [`math` global directive](#math-global-directive) (or [JS constructor option](#math-constructor-option)). By default, we prefer MathJax for better rendering and syntax support, but KaTeX is faster rendering if you had a lot of formulas.
 
@@ -194,10 +176,12 @@ This syntax is similar to [Deckset's `[fit]` keyword](https://docs.decksetapp.co
 
 Some of blocks will be shrunk to fit onto the slide. It is useful preventing stuck out the block from the right of the slide.
 
-|                      |              Traditional rendering               |              Auto-scaling               |
-| :------------------: | :----------------------------------------------: | :-------------------------------------: |
-|    **Code block**    | ![Traditional rendering](https://bit.ly/2LyEnmi) | ![Auto-scaling](https://bit.ly/2N4yWQZ) |
-| **KaTeX math block** | ![Traditional rendering](https://bit.ly/2NXoHuW) | ![Auto-scaling](https://bit.ly/2M6LyCk) |
+**Code blocks** and **KaTeX math blocks** automatically shrink when they would overflow the slide width. This prevents content from being cut off.
+
+> **Examples:**
+>
+> - [Code block auto-scaling](examples/code-block-autoscaling.md)
+> - [KaTeX math block auto-scaling](examples/katex-autoscaling.md)
 
 > [!NOTE]
 > MathJax math block will always be scaled without even setting `@auto-scaling` metadata.
