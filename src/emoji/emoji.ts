@@ -54,8 +54,7 @@ export const markdown = marpitPlugin((md) => {
 
     markdownItEmoji(picker, { shortcuts: {} })
 
-    // TODO: use md.core.ruler.after
-    md.core.ruler.push('marp_emoji', (state) => {
+    md.core.ruler.after('inline', 'marp_emoji', (state) => {
       const { Token } = state
 
       state.Token = function replacedToken(name, ...args) {
